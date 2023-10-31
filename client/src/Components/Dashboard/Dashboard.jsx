@@ -1,7 +1,14 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 // this dashboard show all the details like name id student name teacer name in a table
 const Dashboards = () => {
+  const navigate = useNavigate();
+  // this function will redirects user to input form where they can enter the fields that can  be added into database
+  const handleAdd = () => {
+    // navigating to taking input fields
+    navigate("/addNew");
+  };
+
   return (
     <>
       <div className="container-fluid bg-dark p-3 text-center">
@@ -9,7 +16,10 @@ const Dashboards = () => {
       </div>
       <div className="container mt-5 p-3 d-flex justify-content-center">
         {" "}
-        <button className="btn btn-success">Add New</button>
+        {/* for adding new data into data base */}
+        <button onClick={handleAdd} className="btn btn-success">
+          Add New
+        </button>
       </div>
 
       <div className="container mt-2 p-2">
