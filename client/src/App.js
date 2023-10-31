@@ -1,10 +1,16 @@
+// App.js
+import React, { useState } from "react";
 import "./App.css";
+
+import Paths from "./Components/Routes/Paths";
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello</h1>
-    </div>
+    <>
+      <div className="App">
+        <Paths />
+      </div>
+    </>
   );
 }
 
