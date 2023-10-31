@@ -11,9 +11,10 @@ const Dashboards = () => {
 
   return (
     <>
-      <div className="container-fluid bg-dark p-3 text-center">
-        <h2 className="text-white col-md-12">Students Data</h2>
+      <div className="container-fluid  bg-dark p-3 text-center">
+        <h2 className="text-white ">Students Data</h2>
       </div>
+
       <div className="container mt-5 p-3 d-flex justify-content-center">
         {" "}
         {/* for adding new data into data base */}
@@ -22,7 +23,7 @@ const Dashboards = () => {
         </button>
       </div>
 
-      <div className="container mt-2 p-2">
+      <div className="container-fluid mt-2 p-2">
         <div className="row">
           <div className="col-md-10 offset-md-1">
             <table class="table table-striped">
@@ -43,8 +44,8 @@ const Dashboards = () => {
                   <th scope="col" className="col-md-1">
                     Marks
                   </th>
-                  <th scope="col" className="col-md-2 ">
-                    Actions
+                  <th scope="col" className="col-md-2 text-center ">
+                    User Actions
                   </th>
                 </tr>
               </thead>
