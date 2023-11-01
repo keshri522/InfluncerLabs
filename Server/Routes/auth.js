@@ -5,9 +5,11 @@ const {
   getUsers,
   postRecords,
   deleteRecordById,
+  eidtRecordsById,
 } = require("../Controllers/user");
 // creating routes or endpoint where User can make request to Backend or Server
 router.get("/userdetails", getUsers); // this is the get request endpoint
 router.post("/createuser", postRecords); // this is post routes where user can post data
 router.post("/deleteuser", deleteRecordById); // this will just delete the records and send the remaining users
+router.post("/edituser", eidtRecordsById); // this will just
 module.exports = router;

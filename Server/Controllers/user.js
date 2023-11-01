@@ -49,5 +49,37 @@ const deleteRecordById = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
+// this function will fitst check the id user sending in body if matched then update if not matched in db then create
+const eidtRecordsById = async () => {
+  const { id } = req.body; // destructure the id
+  const { Sname, Tname, marks, Sub } = req.body.data;
+  try {
+    let find = await User.findOneAndUpdate(
+      { id: id }, // if id  is present then simply update this  using this fields
+      {
+        Name: Sname,
+        TeacherName: Tname,
+        Marks: marks,
+        Subject: Sub,
+      }
+    );
+    // note
+    if (find) {
+      // send the all user included the update urser to frontend
+      let res = await User.find({}); // find all the users
+      if (res) {
+        res.status(200).send(res);
+      } else {
+        res.status(404).send("user not found");
+      }
+    }
+    // if there are not users the we have create the users into the databse
+    else {
+      postRecords(); // this will save the  new records in the db
+    }
+  } catch (error) {
+    res.status(404).send(error);
+  }
+};
 
-module.exports = { getUsers, postRecords, deleteRecordById };
+module.exports = { getUsers, postRecords, deleteRecordById, eidtRecordsById };

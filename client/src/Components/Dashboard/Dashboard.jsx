@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import getAllUsers from "../Functions/getUser";
 import DeleteUser from "../Functions/DeleteUser";
 import { toast } from "react-toastify";
+
 // this dashboard show all the details like name id student name teacer name in a table
 const Dashboards = () => {
   const [response, Setresponse] = useState([]);
@@ -19,9 +20,11 @@ const Dashboards = () => {
     setshow(true);
     getAllUsers()
       .then((res) => {
-        Setresponse(res.data);
-        setshow(false);
-        // console.log(res.data); // jsut for debugging
+        setTimeout(() => {
+          Setresponse(res.data);
+          setshow(false);
+          // console.log(res.data); // jsut for debugging
+        }, 500);
       })
       .catch((err) => {
         toast.error(err);
@@ -40,6 +43,11 @@ const Dashboards = () => {
       toast.error(error);
       settrack(false);
     }
+  };
+  // this function will edit the  row make a request to server
+  const Editrow = (row) => {
+    // here i am redirecting users to edit page where user can eidt the rows
+    navigate("/editpage", { state: { data: row } }); // here  i am also sending the current user all data into edit page that we can fill the input with that data later on we can change or nake a api call
   };
   return (
     <>
@@ -60,7 +68,10 @@ const Dashboards = () => {
           <div className="container mt-5 p-3 d-flex justify-content-center">
             {" "}
             {/* for adding new data into data base */}
-            <button onClick={handleAdd} className="btn btn-success">
+            <button
+              onClick={handleAdd}
+              className="btn btn-outline-primary w-100 "
+            >
               Add New
             </button>
           </div>
@@ -109,7 +120,12 @@ const Dashboards = () => {
                           >
                             Delete
                           </button>{" "}
-                          <button className="btn btn-primary btn-sm m-1 m-md-0  ">
+                          <button
+                            onClick={() => {
+                              Editrow(row);
+                            }}
+                            className="btn btn-primary btn-sm m-1 m-md-0  "
+                          >
                             Edit
                           </button>{" "}
                         </td>
