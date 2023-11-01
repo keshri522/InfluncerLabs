@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/InfluncerLabs/static/css/main.5aa615ae.css",
+    "main.js": "/InfluncerLabs/static/js/main.54c14929.js",
+    "index.html": "/InfluncerLabs/index.html",
+    "main.5aa615ae.css.map": "/InfluncerLabs/static/css/main.5aa615ae.css.map",
+    "main.54c14929.js.map": "/InfluncerLabs/static/js/main.54c14929.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5aa615ae.css",
+    "static/js/main.54c14929.js"
+  ]
+}
