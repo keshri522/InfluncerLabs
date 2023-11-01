@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import getAllUsers from "../Functions/getUser";
+import DeleteUser from "../Functions/DeleteUser";
 import { toast } from "react-toastify";
 // this dashboard show all the details like name id student name teacer name in a table
 const Dashboards = () => {
   const [response, Setresponse] = useState([]);
   const navigate = useNavigate();
-
+  const [track, settrack] = useState(false); // this will make sure once user delete then our getUserdetails will run and shows all the user except deleted users
   const [show, setshow] = useState(false); // show a loading based on this
   // this function will redirects user to input form where they can enter the fields that can  be added into database
   const handleAdd = () => {
@@ -26,8 +27,20 @@ const Dashboards = () => {
         toast.error(err);
         setshow(false);
       });
-  }, []);
+  }, [track]); // when ever track changstates
 
+  // this function will delete the row based on the id
+  const Delterow = async (id) => {
+    settrack(true); // make sure once my getuserdetails also runs
+    try {
+      let delterow = await DeleteUser(id);
+      toast.success("Successfully deleted");
+      settrack(false);
+    } catch (error) {
+      toast.error(error);
+      settrack(false);
+    }
+  };
   return (
     <>
       <div className="container-fluid  bg-dark p-3 text-center">
@@ -82,13 +95,18 @@ const Dashboards = () => {
                     {/* here i am using response to show all the fields based on the response of api */}
                     {response?.map((row, index) => (
                       <tr key={index}>
-                        <th scope="row">{index}</th>
+                        <th scope="row">{index + 1}</th>
                         <td>{row.Name}</td>
                         <td>{row.TeacherName}</td>
                         <td>{row.Subject}</td>
                         <td>{row.Marks}</td>
                         <td className="d-flex justify-content-around ">
-                          <button className="btn btn-danger btn-sm  m-1 m-md-0  ">
+                          <button
+                            onClick={() => {
+                              Delterow(row._id);
+                            }}
+                            className="btn btn-danger btn-sm  m-1 m-md-0  "
+                          >
                             Delete
                           </button>{" "}
                           <button className="btn btn-primary btn-sm m-1 m-md-0  ">

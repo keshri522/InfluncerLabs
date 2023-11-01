@@ -34,4 +34,20 @@ const postRecords = async (req, res) => {
     res.status(500).send(error);
   }
 };
-module.exports = { getUsers, postRecords };
+// this function will delete the user based on the id and then return all  the  remaing users
+const deleteRecordById = async (req, res) => {
+  const { id } = req.body; // Assuming you're passing the ID as a URL parameter
+
+  try {
+    const deletedRecord = await User.findByIdAndDelete(id); // Find and delete record by ID
+    if (!deletedRecord) {
+      return res.status(404).send({ message: "Record not found" });
+    }
+    res.status(200).send(true);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+
+module.exports = { getUsers, postRecords, deleteRecordById };
