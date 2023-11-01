@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/InfluncerLabs/static/css/main.5aa615ae.css",
-    "main.js": "/InfluncerLabs/static/js/main.c37a39ff.js",
+    "main.js": "/InfluncerLabs/static/js/main.dd26314b.js",
     "index.html": "/InfluncerLabs/index.html",
     "main.5aa615ae.css.map": "/InfluncerLabs/static/css/main.5aa615ae.css.map",
-    "main.c37a39ff.js.map": "/InfluncerLabs/static/js/main.c37a39ff.js.map"
+    "main.dd26314b.js.map": "/InfluncerLabs/static/js/main.dd26314b.js.map"
   },
   "entrypoints": [
     "static/css/main.5aa615ae.css",
-    "static/js/main.c37a39ff.js"
+    "static/js/main.dd26314b.js"
   ]
 }
