@@ -53,12 +53,12 @@ const Editforms = ({
       />
       {show ? (
         <button className="btn btn-outline-primary mt-3 p-3 w-100">
-          Posting...
+          Updating...
         </button>
       ) : (
         <button
           type="submit"
-          className="btn btn-outline-primary mt-3 p-3 w-100 "
+          className="btn btn-outline-warning mt-3 p-3 w-100 "
           disabled={
             Tname.length === 0 ||
             Sname.length === 0 ||
@@ -66,7 +66,7 @@ const Editforms = ({
             marks.length === 0
           }
         >
-          Post
+          Edit
         </button>
       )}
       {/* this button will reset the all fields */}
