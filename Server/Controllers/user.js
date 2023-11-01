@@ -2,7 +2,7 @@
 const User = require("../Modal/User"); // this is User modal
 const getUsers = async (req, res) => {
   try {
-    let allUsers = await User.find({});
+    let allUsers = await User.find({}).sort({ createdAt: -1 });
     if (allUsers) {
       res.status(200).send(allUsers);
     } else {

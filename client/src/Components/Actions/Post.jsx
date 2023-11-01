@@ -2,8 +2,10 @@ import React, { useState } from "react";
 // import child components of forms which contains the forsm of taking input from the users
 import InputForms from "../Forms/UserInputforms";
 import CreateUser from "../Functions/CreateUser";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const PostData = () => {
+  const navigate = useNavigate();
   // creating a state of the component
   const [values, Setvalues] = useState({
     Sname: "",
@@ -23,14 +25,17 @@ const PostData = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Setshow(true);
+    Setshow(true);
     // need to make api request that will add or post the data in the database
     CreateUser(values)
       .then((res) => {
         if (res.status === 200) {
           setTimeout(() => {
             Setshow(false);
+
             toast.success("Records added successfully");
+            // navigate to home page
+            navigate("/dashboard");
           }, 1000);
         }
       })
@@ -38,9 +43,6 @@ const PostData = () => {
         // console.log(err);
         toast.error("Not goign");
       });
-
-    // console.log(values); // just for debugging
-    // after making a api request to backend to post the data to db
   };
 
   // this function will reset the forms
