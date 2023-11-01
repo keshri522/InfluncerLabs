@@ -60,6 +60,7 @@ const Dashboards = () => {
           <div className="row">
             <div className="col-md-12 text-center">
               <h1 className="text-white ">fetching data please wait...</h1>
+              <p className="text-muted">Server is Slow have patience..</p>
             </div>
           </div>
         </div>
