@@ -36,7 +36,6 @@ const EditData = () => {
       if (edit.status === 200) {
         setTimeout(() => {
           toast.success("Successfully updated");
-          console.log(edit);
           Setshow(false);
           navigate("/dashboard");
         }, 500);
