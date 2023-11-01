@@ -66,7 +66,7 @@ const Editforms = ({
             marks.length === 0
           }
         >
-          Edit
+          Update
         </button>
       )}
       {/* this button will reset the all fields */}
