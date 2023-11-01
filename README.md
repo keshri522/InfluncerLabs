@@ -11,6 +11,13 @@ School Management system
 - Database: MongoDB
 - Routing: Express.js Routing
 - api call using axios
+
+   ## Features
+  - Create School Management system
+  - Edit User
+  - Delete User
+  - Read User
+  
 ## Getting Started
  - Perform all the CRUD operation using Mogodb Showing on Ui.
  - User Can Edit Delete and Post a Update in this Application
